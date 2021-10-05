@@ -10,10 +10,9 @@ Developed with Express, `malbums-api` it's a music albums management system. Mal
 ### The system use: 
 * `Express` to deal with routes
 * `TypeORM` as ORM
-* `Typescript` as development 'language'
-* `Eslint` to code lint
-* `Prettier` to code style
-* `eslint-plugin-prettier` and `eslint-config-prettier` to make a better configuration between `Prettier` and `Eslint`
+* `MySQL` as database
+* `Docker` to work with containers
+* `Docker-compose` to manage containers
 
 ## Requirements
 
@@ -23,6 +22,8 @@ Before start, check if you have installed and configured the following tools:
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/en/)
+* [Docker](https://www.docker.com/) (_just if you want to run the system with the automatic docker default configuration_)
+* [MySQL](https://www.mysql.com/) (_just if you will not run it with Docker_)
 
 ### Editor requirements
 
