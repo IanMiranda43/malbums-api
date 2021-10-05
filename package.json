@@ -2,10 +2,12 @@
   "name": "malbums-api",
   "version": "1.0.0",
   "scripts": {
-    "start:dev": "ts-node-dev --ignore-watch node_modules --transpile-only src/server.ts",
+    "typeorm:dev": "NODE_ENV=development ts-node-dev ./node_modules/typeorm/cli.js",
+    "start:dev": "NODE_ENV=development ts-node-dev --ignore-watch node_modules --transpile-only src/server.ts",
+    "typeorm:prod": "NODE_ENV=production ts-node-dev ./node_modules/typeorm/cli.js",
     "build": "npx tsc",
     "prestart:prod": "npm run build",
-    "start:prod": "node src/server.js"
+    "start:prod": "NODE_ENV=production node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,9 @@
   },
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.38"
   }
 }

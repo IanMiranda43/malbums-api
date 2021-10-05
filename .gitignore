@@ -10,3 +10,6 @@ logs
 
 # docker
 .docker/dbdata
+
+# build directory
+build/
