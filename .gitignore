@@ -1,9 +1,12 @@
-# Dependency directories
+# dependency directories
 node_modules/
 
 # dotenv environment variables file
 .env
 
-# Logs
+# logs
 logs
 *.log
+
+# docker
+.docker/dbdata
