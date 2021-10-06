@@ -3,13 +3,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { User } from './User';
 
-@Entity()
+@Entity('albums')
 export class Album extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   readonly id: string;
@@ -32,8 +33,9 @@ export class Album extends BaseEntity {
   @Column('uuid')
   user_id: string;
 
+  @JoinColumn({ name: 'user_id' })
   @ManyToOne(() => User)
-  userId: User;
+  user: User;
 
   @CreateDateColumn()
   created_at: string;

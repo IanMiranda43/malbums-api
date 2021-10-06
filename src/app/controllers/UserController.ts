@@ -28,7 +28,7 @@ export class UserController {
 
     delete user.password;
 
-    return res.status(201).json(user);
+    return res.status(201).json({ status: 'success', user });
   }
 
   async delete(req: Request, res: Response) {

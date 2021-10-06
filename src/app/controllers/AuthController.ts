@@ -24,7 +24,7 @@ export class AuthController {
     await user.save();
     delete user.password;
 
-    res.status(200).json(user);
+    res.status(200).json({ status: 'success', user });
   }
 
   async logout(req: Request, res: Response) {

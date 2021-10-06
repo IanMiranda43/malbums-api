@@ -10,15 +10,18 @@ export function ErrorsMiddleware(
   const statusCode = parseInt(err.name);
 
   if (!isNaN(statusCode)) {
-    return res.status(statusCode).json({ message: err.message });
+    return res.status(statusCode).json({
+      status: 'error',
+      message: err.message,
+    });
   }
 
   if (err.name === 'TokenExpiredError') {
-    return res.status(401).json({ message: 'Invalid token' });
+    return res.status(401).json({ status: 'error', message: 'Invalid token' });
   }
 
   if (err instanceof Error) {
-    return res.status(400).json({ message: err.message });
+    return res.status(400).json({ status: 'error', message: err.message });
   }
 
   return res.status(500).json({
