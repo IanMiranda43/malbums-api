@@ -25,6 +25,11 @@ export class createUsersTable1633447965593 implements MigrationInterface {
             type: 'varchar',
           },
           {
+            name: 'token',
+            type: 'text',
+            isNullable: true,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

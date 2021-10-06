@@ -43,25 +43,28 @@ git clone git@github.com:IanMiranda43/malbums-api.git
 ```
 ### Configuring the project
 
-Access the project folder and then set your server port and DB credentials in the `.env` file.
+Access the project folder and then set your server port, DB credentials and an JWT secret string as token in the `.env` file.
 
 ```env
-PORT=3000
+PORT=3001
+
+JWT_SECRET=secret_token
 
 # DB credentials for DEV and PROD environments
 DB_TYPE_DEV=mysql
 DB_NAME_DEV=database
 DB_USER_DEV=user
 DB_PASS_DEV=password
-DB_HOST_DEV=db #127.0.0.1
+DB_HOST_DEV=127.0.0.1
 DB_PORT_DEV=3306
 
 DB_TYPE_PROD=mysql
 DB_NAME_PROD=database
 DB_USER_PROD=user
 DB_PASS_PROD=password
-DB_HOST_PROD=db #127.0.0.1
+DB_HOST_PROD=db
 DB_PORT_PROD=3306
+
 ```
 _The `.env.example` file have this layout, just set your data there and remove the `.example` extension from it._
 

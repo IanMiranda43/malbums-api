@@ -21,7 +21,7 @@ export class createAlbumsTable1633450840749 implements MigrationInterface {
           },
           {
             name: 'year',
-            type: 'varchar',
+            type: 'int',
           },
           {
             name: 'genre',
