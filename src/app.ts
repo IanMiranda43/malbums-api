@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import './database';
 import 'express-async-errors';
 import express from 'express';
+import cors from 'cors';
 
 import { authenticationRoutes, routes } from './routes';
 import { AuthMiddleware } from './app/middlewares/AuthMiddleware';
@@ -16,6 +17,7 @@ class AppController {
   }
 
   middlewares() {
+    this.app.use(cors());
     this.app.use(express.json());
   }
 
