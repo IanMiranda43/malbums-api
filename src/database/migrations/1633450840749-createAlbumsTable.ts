@@ -52,6 +52,7 @@ export class createAlbumsTable1633450840749 implements MigrationInterface {
             columnNames: ['user_id'],
             referencedColumnNames: ['id'],
             referencedTableName: 'users',
+            onDelete: 'CASCADE',
           },
         ],
       }),

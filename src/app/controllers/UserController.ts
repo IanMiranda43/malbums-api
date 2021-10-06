@@ -1,9 +1,10 @@
 import { ErrorWithStatusCode } from '../errors/ErrorWithStatusCode';
 import { Request, Response } from 'express';
-import { hash } from 'bcrypt';
+import { compare, hash } from 'bcrypt';
 
 import { User } from '../entities/User';
 import { generateUserJwt } from '../services/JwtService';
+import { Album } from '../entities/Album';
 
 export class UserController {
   async create(req: Request, res: Response) {
@@ -32,13 +33,25 @@ export class UserController {
   }
 
   async delete(req: Request, res: Response) {
-    const { user } = req.body;
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
 
     if (!user) {
       throw new ErrorWithStatusCode(404, 'User not found');
     }
 
+    if (!(await compare(password, user.password as string))) {
+      throw new ErrorWithStatusCode(401, 'Email or password is invalid');
+    }
+
     await user.remove();
+
+    const albums = await Album.find({ user_id: user.id });
+
+    if (albums) {
+      albums.forEach((album) => album.remove());
+    }
 
     return res.status(200).json({
       status: 'success',
