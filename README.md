@@ -39,7 +39,7 @@ The system is configured to a better code style with development tools like `Esl
 Clone this repository by running:
 
 ```bash
-git clone git@github.com:IanMiranda43/malbums-api.git
+git clone https://github.com/IanMiranda43/malbums-api.git
 ```
 ### Configuring the project
 
